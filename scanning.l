@@ -20,8 +20,8 @@ whitespace	[ \t]
 \n	{ lineNum++; }	/*increment line counter*/
 {whitespace}+	{ /* skip whitespaces and tabs */ }
 
-"define-fun"	{printToken("function def keyword", yytext);}
-"get-int"	{printToken("pre-defined function", yytext);}
+"define-fun"	{printToken("function definition keyword", yytext);}
+"get-int"	{printToken("predefined function", yytext);}
 "if"		{printToken("conditional operator", yytext);}
 "print"		{printToken("program entry point", yytext);}
 
@@ -40,7 +40,7 @@ whitespace	[ \t]
 "("		{printToken("left parenthesis", yytext);}
 ")"		{printToken("right parenthesis", yytext);}
 
-({letter}({letter} | {digit})*) | ({digit}+{letter}({letter} | {digit})*) {
+({letter}({letter}|{digit})*)|({digit}+{letter}({letter}|{digit})*) {
 	printToken("variable/function", yytext);	
 }
 
