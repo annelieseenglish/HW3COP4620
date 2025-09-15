@@ -1,0 +1,4 @@
+(define-fun test (x)
+   (if (>= x 10)
+	(print x)
+	(print 0)))
