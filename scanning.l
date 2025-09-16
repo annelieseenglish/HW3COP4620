@@ -11,7 +11,7 @@ void printToken(const char* token, const char* lexeme) {	/* prints tokens in lex
 }
 %}
 
-digit	[0-9]	/* shortcut to define token patterns */
+digit	[0-9]
 letter	[a-zA-Z]
 whitespace	[ \t]
 
@@ -25,7 +25,7 @@ whitespace	[ \t]
 "if"		{printToken("conditional operator", yytext);}
 "print"		{printToken("program entry point", yytext);}
 
-{digit}+	{printToken("integer constant", yytext);}
+[0-9]+	{ printToken("integer constant", yytext); }
 
 "<="		{printToken("arithmetic comparison", yytext);}
 ">="		{printToken("arithmetic comparison", yytext);}
@@ -40,10 +40,7 @@ whitespace	[ \t]
 "("		{printToken("left parenthesis", yytext);}
 ")"		{printToken("right parenthesis", yytext);}
 
-({letter}({letter}|{digit})*)|({digit}+{letter}({letter}|{digit})*) {
-	printToken("variable/function", yytext);	
-}
-
+[a-zA-Z][a-zA-Z0-9]*	{ printToken("variable/function", yytext); }	
 
 .                           {
     fprintf(stderr, "Error: Unrecognized character '%s' at line %d\n", yytext, lineNum); /*error handling*/
