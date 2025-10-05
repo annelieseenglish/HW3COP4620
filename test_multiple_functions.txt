@@ -1,0 +1,10 @@
+(define-fun double (x)
+  (* x 2))
+
+(define-fun triple (x)
+  (* x 3))
+
+(define-fun sum (a b)
+  (+ a b))
+
+(print (sum (double 5) (triple 3)))

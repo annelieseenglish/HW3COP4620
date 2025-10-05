@@ -1,0 +1,10 @@
+(define-fun double (x)
+  (* x 2))
+
+(define-fun add (a b)
+  (+ a b))
+
+(define-fun compute (x y)
+  (add (double x) y))
+
+(print (compute 5 10))

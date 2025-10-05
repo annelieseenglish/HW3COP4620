@@ -1,0 +1,4 @@
+(define-fun test (x)
+  (+ x @ 5))
+
+(print (test 10))
