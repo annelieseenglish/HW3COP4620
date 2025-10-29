@@ -1,0 +1,3 @@
+(define-fun (foo v) 1)
+(print (foo 1 2))
+
