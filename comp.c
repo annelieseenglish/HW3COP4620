@@ -57,8 +57,7 @@ void free_symbol_tables() {
     for (int i = 0; i < var_table.count; i++) {
         free(var_table.entries[i].name);
         free(var_table.entries[i].func_name);
-    }
-    free(var_table.entries);
+    }    free(var_table.entries);
 }
 
 // FUNCTION TABLE OPERATIONS
@@ -159,9 +158,8 @@ int stgen(struct ast* node)
         int num_children = get_child_num(deffun);
         int scope_end = get_child(deffun, num_children)->id;
 
-        printf("declaration of input FOUND" ``%s'' for function %s;\n \
- it can be used in all AST nodes with ids from %d to %d\n",
-               node->token,
+printf("found input declaration ``%s'' for function %s;\n ",
+	       node->token,
                func_name,
                scope_start,
                scope_end);
