@@ -1,10 +1,20 @@
-# HW1COP4620
+# HW3COP4620
 How to compile:
-1. flex scanning.l
-2. gcc lex.yy.c -o lexer -lfl
-3. ./lexer (textfilehere) e.x. test1.txt/test2.txt/test3.txt
+1: Generate parser (creates y.tab.c and y.tab.h)
+bison -d yacc.y
+2: Generate lexer (creates lex.yy.c)
+flex lex.l
+3: Compile everything together
+gcc -o compiler y.tab.c lex.yy.c ast.c comp.c -lfl
 
-Note: test3.txt is for error checking, its supposed to output an error
-message.
+-running with a test file do -> ./compiler < undefined_1.txt
 
-Thank you! I hope I executed this assignment correctly.
+-testfile1.txt and testfile2.txt are correct test cases
+- duplicate_3.txt
+ duplicatefunc_5.txt
+ undeclared_4.txt
+ undefined_1.txt
+ variableshadows_6.txt
+ wrongarity_2.txt are incorrect test cases, their number corresponds with the error described in the intructions and it should
+tell you about the error.
+
